@@ -553,7 +553,7 @@ points */
 
 	printf("%p", tree->root->left);
 
-	printTree(tree);
+	// printTree(tree);
 	//
 	// struct data* test2 = malloc(sizeof(struct data));
 	//
