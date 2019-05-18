@@ -551,6 +551,8 @@ points */
 
 	printTree(tree);
 
+	deleteBSTree(tree);
+
 	// print_type(tree->root->val);
 	//
 	// printf("\n");
