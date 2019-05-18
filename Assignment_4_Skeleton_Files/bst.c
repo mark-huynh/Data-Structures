@@ -542,21 +542,21 @@ points */
   	//testAddNode();
 
 	struct BSTree* tree = newBSTree();
-	struct data* test = malloc(sizeof(struct data));
-
-	test->number = 5;
-	test->name = "idk";
-
-	addBSTree(tree, &test);
-
-	printTree(tree);
-
-	struct data* test2 = malloc(sizeof(struct data));
-
-	test2->number = 8;
-	test2->name = "woo";
-
-	addBSTree(tree, &test2);
+	// struct data* test = malloc(sizeof(struct data));
+	//
+	// test->number = 5;
+	// test->name = "idk";
+	//
+	// addBSTree(tree, &test);
+	//
+	// printTree(tree);
+	//
+	// struct data* test2 = malloc(sizeof(struct data));
+	//
+	// test2->number = 8;
+	// test2->name = "woo";
+	//
+	// addBSTree(tree, &test2);
 
 	printTree(tree);
 
