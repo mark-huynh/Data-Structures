@@ -527,7 +527,7 @@ points */
 	t->number = 3;
 	f->number = 4;
 
-	printf("%d", compare(t, f));
+	printf("%d", compare(f, t));
 
 
 	printf("\n");
