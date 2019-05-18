@@ -549,6 +549,8 @@ points */
 
 	addBSTree(tree, test);
 
+	free(test);
+
 	printTree(tree);
 
 	deleteBSTree(tree);
