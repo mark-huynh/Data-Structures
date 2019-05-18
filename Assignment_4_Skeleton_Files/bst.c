@@ -140,8 +140,27 @@ int sizeBSTree(struct BSTree *tree) { return tree->cnt; }
 struct Node *_addNode(struct Node *cur, TYPE val)
 {
     /*write this*/
+		assert(val != NULL);
 
-    return NULL;
+		if(cur == NULL)
+		{
+			struct Node* newNode = malloc(sizeof(struct Node));
+			newNode->val = val;
+			return val;
+		}
+
+		int comp = compare(val, cur);
+
+		if(comp == -1) // newNode is less than cur
+		{
+			cur->left = _addNode(cur->left, val);
+		}
+		else
+		{
+			cur->right = _addNode(cur->right, val);
+		}
+
+		return cur;
 }
 
 /*
@@ -520,14 +539,25 @@ points */
 
   	//testAddNode();
 
-	struct data* t = malloc(sizeof(struct data));
-	struct data* f = malloc(sizeof(struct data));;
+	struct BSTree* tree = newBSTree();
+	struct data* test = malloc(sizeof(struct data));
 
+	test->number = 5;
+	test->name = "idk";
 
-	t->number = 4;
-	f->number = 4;
+	addBSTree(tree, test);
 
-	printf("%d", compare(f, t));
+	printTree(tree);
+
+	struct data* test2 = malloc(sizeof(struct data));
+
+	test2->number = 8;
+	test2->name = "woo";
+
+	addBSTree(tree, test2);
+
+	printTree(tree);
+
 
 
 	printf("\n");
