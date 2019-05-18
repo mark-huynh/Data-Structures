@@ -551,7 +551,7 @@ points */
 
 	print_type(tree->root->val);
 
-	// printTree(tree);
+	printTree(tree);
 	//
 	// struct data* test2 = malloc(sizeof(struct data));
 	//
