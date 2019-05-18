@@ -26,6 +26,17 @@
 int compare(TYPE left, TYPE right)
 {
     /*FIXME: write this*/
+		struct data* l = left;
+		struct data* r = right;
+		if(l->number < r->number)
+		{
+			return -1;
+		}
+		else if(l->number > r->number)
+		{
+			return 1;
+		}
+
 	return 0;
 
 }
@@ -36,5 +47,3 @@ void print_type(TYPE curval)
     /*FIXME: write this*/
 
 }
-
-

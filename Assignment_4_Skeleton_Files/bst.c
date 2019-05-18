@@ -1,7 +1,7 @@
 /***********************************************************
 * Author: Mark Huynh
 * Email: huynhma@oregonstate.edu
-* Date Created: 
+* Date Created: May 10th, 2019
 * Filename: bst.c
 *
 * Solution description: Implementation of a Binary Search Tree
@@ -140,6 +140,7 @@ int sizeBSTree(struct BSTree *tree) { return tree->cnt; }
 struct Node *_addNode(struct Node *cur, TYPE val)
 {
     /*write this*/
+
     return NULL;
 }
 
@@ -518,6 +519,14 @@ int main(int argc, char *argv[]){
 points */
 
   	//testAddNode();
+
+	struct data* t = malloc(sizeof(struct data));
+	struct data* f = malloc(sizeof(struct data));;
+
+
+	t->number = 3;
+	f->number = 4;
+
 
 	printf("\n");
   	//testContainsBSTree();
