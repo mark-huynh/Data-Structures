@@ -273,7 +273,7 @@ void removeBSTree(struct BSTree *tree, TYPE val)
 
 /*----------------------------------------------------------------------------*/
 void printNode(struct Node *cur) {
-	 if (cur == NULL) return;
+	 if (cur == 0) return;
 	 printf("(");
 	 printNode(cur->left);
 	 /*Call print_type which prints the value of the TYPE*/
@@ -550,6 +550,8 @@ points */
 	addBSTree(tree, &test);
 
 	print_type(tree->root->val);
+
+	printf("%p", tree->root->val->left);
 
 	printTree(tree);
 	//
