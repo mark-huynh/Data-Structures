@@ -547,7 +547,7 @@ points */
 	test->number = 5;
 	test->name = "idk";
 
-	addBSTree(tree, test);
+	addBSTree(tree, &test);
 
 	printTree(tree);
 
@@ -556,7 +556,7 @@ points */
 	test2->number = 8;
 	test2->name = "woo";
 
-	addBSTree(tree, test2);
+	addBSTree(tree, &test2);
 
 	printTree(tree);
 
