@@ -560,7 +560,7 @@ points */
 	//
 	// addBSTree(tree, &test2);
 
-	printTree(tree);
+	// printTree(tree);
 
 
 
