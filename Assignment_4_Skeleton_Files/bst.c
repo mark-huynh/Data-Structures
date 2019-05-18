@@ -547,7 +547,7 @@ points */
 	test->number = 5;
 	test->name = "idk";
 
-	addBSTree(tree, &test);
+	addBSTree(tree, test);
 
 	print_type(tree->root->val);
 
