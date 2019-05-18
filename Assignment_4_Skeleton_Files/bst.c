@@ -524,7 +524,7 @@ points */
 	struct data* f = malloc(sizeof(struct data));;
 
 
-	t->number = 3;
+	t->number = 4;
 	f->number = 4;
 
 	printf("%d", compare(f, t));
