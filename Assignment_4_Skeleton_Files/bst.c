@@ -146,8 +146,8 @@ struct Node *_addNode(struct Node *cur, TYPE val)
 		{
 			struct Node* newNode = malloc(sizeof(struct Node));
 			newNode->val = val;
-			newNode->right = 0;
-			newNode->left = 0;
+			newNode->right = NULL;
+			newNode->left = NULL;
 			return val;
 		}
 
