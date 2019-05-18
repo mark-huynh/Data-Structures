@@ -527,6 +527,8 @@ points */
 	t->number = 3;
 	f->number = 4;
 
+	printf("%d", compare(t, f));
+
 
 	printf("\n");
   	//testContainsBSTree();
