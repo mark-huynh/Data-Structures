@@ -549,11 +549,13 @@ points */
 
 	addBSTree(tree, test);
 
-	print_type(tree->root->val);
+	printTree(tree);
 
-	printf("\n");
-
-	print_type(tree->root->left->val);
+	// print_type(tree->root->val);
+	//
+	// printf("\n");
+	//
+	// print_type(tree->root->left->val);
 
 
 	// printf("%p", tree->root->left);
