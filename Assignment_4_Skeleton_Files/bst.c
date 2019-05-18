@@ -148,7 +148,7 @@ struct Node *_addNode(struct Node *cur, TYPE val)
 			newNode->val = val;
 			newNode->right = NULL;
 			newNode->left = NULL;
-			return val;
+			return newNode;
 		}
 
 		int comp = compare(val, cur);
