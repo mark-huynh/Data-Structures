@@ -551,7 +551,7 @@ points */
 
 	print_type(tree->root->val);
 
-	printf("%p", tree->root->val->left);
+	printf("%p", tree->root->left);
 
 	printTree(tree);
 	//
