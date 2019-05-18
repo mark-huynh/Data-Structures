@@ -551,6 +551,8 @@ points */
 
 	print_type(tree->root->val);
 
+	printf("\n");
+
 	print_type(tree->root->left->val);
 
 
