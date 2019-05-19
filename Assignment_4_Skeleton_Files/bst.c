@@ -555,13 +555,13 @@ points */
 
 	deleteBSTree(tree);
 
-	
+
 	struct data* test2 = malloc(sizeof(struct data));
 
 	test2->number = 8;
 	test2->name = "woo";
 
-	addBSTree(tree, &test2);
+	addBSTree(tree, test2);
 
 	printTree(tree);
 
