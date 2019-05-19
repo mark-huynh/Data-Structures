@@ -231,7 +231,12 @@ int containsBSTree(struct BSTree *tree, TYPE val)
 TYPE _leftMost(struct Node *cur)
 {
     /*write this*/
-    return NULL;
+		assert(cur != NULL);
+		while(cur->left != NULL)
+		{
+			cur = cur->left;
+		}
+    return cur->val;
 }
 
 
@@ -250,7 +255,19 @@ Note:  If you do this iteratively, the above hint does not apply.
 struct Node *_removeLeftMost(struct Node *cur)
 {
     /*write this*/
-    return NULL;
+		assert(cur != NULL);
+
+		if(cur->left == NULL)
+		{
+			struct Node* temp = cur->right;
+			free(cur);
+			return temp;
+		}
+		else
+		{
+			cur->left = _removeLeftMost(cur->left);
+			return cur;
+		}
 }
 /*
  recursive helper function to remove a node from the tree
@@ -610,6 +627,14 @@ points */
 	test6->number = 30;
 	test6->name = "woo";
 	printf("Finding 30: %d\n", containsBSTree(tree, test6));
+
+	printf("Leftmost: ");
+	print_type(_leftMost(tree->root));
+	printf("\n");
+
+	printf("Removing Leftmost... \n");
+	_removeLeftMost(tree->root);
+	printTree(tree);
 
 
 
