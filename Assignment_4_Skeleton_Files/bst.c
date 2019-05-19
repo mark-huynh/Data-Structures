@@ -555,6 +555,11 @@ points */
 	test2->number = 8;
 	test2->name = "woo";
 
+	struct data* test3 = malloc(sizeof(struct data));
+
+	test3->number = 4;
+	test3->name = "woo";
+
 	addBSTree(tree, test2);
 
 	printTree(tree);
