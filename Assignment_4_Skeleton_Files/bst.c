@@ -560,7 +560,7 @@ points */
 	test3->number = 4;
 	test3->name = "woo";
 
-	addBSTree(tree, test2);
+	addBSTree(tree, test3);
 
 	printTree(tree);
 
