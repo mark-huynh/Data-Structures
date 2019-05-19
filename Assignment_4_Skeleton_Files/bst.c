@@ -197,6 +197,25 @@ element
 int containsBSTree(struct BSTree *tree, TYPE val)
 {
     /*write this*/
+		assert(tree != NULL);
+		assert(val != NULL);
+
+		struct Node* cur = tree->root;
+		while(cur != NULL)
+		{
+			if(compare(cur->val, val) == 0)
+			{
+				return 1;
+			}
+			else if(compare(cur->val, val) == 1)
+			{
+				cur = cur->left;
+			}
+			else if(compare(cur->val, val) == -1)
+			{
+				cur = cur->right;
+			}
+		}
     return 0;
 }
 
@@ -548,7 +567,6 @@ points */
 	test->name = "idk";
 
 	addBSTree(tree, test);
-	printTree(tree);
 
 	struct data* test2 = malloc(sizeof(struct data));
 
@@ -557,7 +575,6 @@ points */
 
 	addBSTree(tree, test2);
 
-	printTree(tree);
 
 	struct data* test3 = malloc(sizeof(struct data));
 
@@ -566,7 +583,33 @@ points */
 
 	addBSTree(tree, test3);
 
+	struct data* test4 = malloc(sizeof(struct data));
+
+	test4->number = 20;
+	test4->name = "woo";
+
+	addBSTree(tree, test4);
+
+	struct data* test5 = malloc(sizeof(struct data));
+
+	test5->number = 15;
+	test5->name = "woo";
+
+	addBSTree(tree, test5);
+
 	printTree(tree);
+
+	printf("Finding 4: %d\n", containsBSTree(tree, test3));
+	printf("Finding 5: %d\n", containsBSTree(tree, test));
+	printf("Finding 8: %d\n", containsBSTree(tree, test2));
+	printf("Finding 20: %d\n", containsBSTree(tree, test4));
+	printf("Finding 15: %d\n", containsBSTree(tree, test5));
+
+	struct data* test6 = malloc(sizeof(struct data));
+
+	test6->number = 30;
+	test6->name = "woo";
+	printf("Finding 30: %d\n", containsBSTree(tree, test6));
 
 
 
