@@ -281,7 +281,32 @@ struct Node *_removeLeftMost(struct Node *cur)
 struct Node *_removeNode(struct Node *cur, TYPE val)
 {
     /*write this*/
-    return NULL;
+		assert(val != NULL);
+		assert(cur != NULL);
+
+		if(compare(cur->val, val) == 0) //they are equal
+		{
+			if(cur->right == NULL)
+			{
+				struct Node* temp = cur->left;
+				free(cur);
+				return temp;
+			}
+			else
+			{
+				cur->val = _leftMost(cur->right);
+				cur->right = _removeLeftMost(cur->right);
+			}
+		}
+		else if(compare(cur->val, val) == 1) // cur is greater than val
+		{
+			cur->left = _removeNode(cur->left, val);
+		}
+		else
+		{
+			cur->right = _removeNode(cur->right, val);
+		}
+		return cur;
 
 }
 /*
@@ -632,8 +657,8 @@ points */
 	print_type(_leftMost(tree->root));
 	printf("\n");
 
-	printf("Removing Leftmost... \n");
-	_removeLeftMost(tree->root);
+	printf("Removing 8... \n");
+	removeBSTree(tree, test2);
 	printTree(tree);
 
 
