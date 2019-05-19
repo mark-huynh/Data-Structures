@@ -555,25 +555,15 @@ points */
 
 	deleteBSTree(tree);
 
-	// print_type(tree->root->val);
-	//
-	// printf("\n");
-	//
-	// print_type(tree->root->left->val);
+	
+	struct data* test2 = malloc(sizeof(struct data));
 
+	test2->number = 8;
+	test2->name = "woo";
 
-	// printf("%p", tree->root->left);
+	addBSTree(tree, &test2);
 
-	// printTree(tree);
-	//
-	// struct data* test2 = malloc(sizeof(struct data));
-	//
-	// test2->number = 8;
-	// test2->name = "woo";
-	//
-	// addBSTree(tree, &test2);
-
-	// printTree(tree);
+	printTree(tree);
 
 
 
