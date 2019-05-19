@@ -548,13 +548,7 @@ points */
 	test->name = "idk";
 
 	addBSTree(tree, test);
-
-	free(test);
-
 	printTree(tree);
-
-	deleteBSTree(tree);
-
 
 	struct data* test2 = malloc(sizeof(struct data));
 
