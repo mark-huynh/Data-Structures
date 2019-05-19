@@ -151,7 +151,7 @@ struct Node *_addNode(struct Node *cur, TYPE val)
 			return newNode;
 		}
 
-		int comp = compare(val, cur);
+		int comp = compare(val, cur->val);
 
 		if(comp == -1) // newNode is less than cur
 		{
