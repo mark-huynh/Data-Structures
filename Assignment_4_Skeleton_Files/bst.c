@@ -600,68 +600,7 @@ int main(int argc, char *argv[]){
    /* After implementing your code, you must uncomment the following calls to the test functions and test your code. Otherwise, you will not receive any
 points */
 
-  	testAddNode();
-
-	// struct BSTree* tree = newBSTree();
-	// struct data* test = malloc(sizeof(struct data));
-	//
-	// test->number = 5;
-	// test->name = "idk";
-	//
-	// addBSTree(tree, test);
-	//
-	// struct data* test2 = malloc(sizeof(struct data));
-	//
-	// test2->number = 8;
-	// test2->name = "woo";
-	//
-	// addBSTree(tree, test2);
-	//
-	//
-	// struct data* test3 = malloc(sizeof(struct data));
-	//
-	// test3->number = 4;
-	// test3->name = "woo";
-	//
-	// addBSTree(tree, test3);
-	//
-	// struct data* test4 = malloc(sizeof(struct data));
-	//
-	// test4->number = 20;
-	// test4->name = "woo";
-	//
-	// addBSTree(tree, test4);
-	//
-	// struct data* test5 = malloc(sizeof(struct data));
-	//
-	// test5->number = 15;
-	// test5->name = "woo";
-	//
-	// addBSTree(tree, test5);
-	//
-	// printTree(tree);
-	//
-	// printf("Finding 4: %d\n", containsBSTree(tree, test3));
-	// printf("Finding 5: %d\n", containsBSTree(tree, test));
-	// printf("Finding 8: %d\n", containsBSTree(tree, test2));
-	// printf("Finding 20: %d\n", containsBSTree(tree, test4));
-	// printf("Finding 15: %d\n", containsBSTree(tree, test5));
-	//
-	// struct data* test6 = malloc(sizeof(struct data));
-	//
-	// test6->number = 30;
-	// test6->name = "woo";
-	// printf("Finding 30: %d\n", containsBSTree(tree, test6));
-	//
-	// printf("Leftmost: ");
-	// print_type(_leftMost(tree->root));
-	// printf("\n");
-	//
-	// printf("Removing 8... \n");
-	// removeBSTree(tree, test2);
-	// printTree(tree);
-
-
+  testAddNode();
 
 	printf("\n");
   	testContainsBSTree();
@@ -675,6 +614,64 @@ points */
 	printf("\n");
     testRemoveNode();
 
+		// struct BSTree* tree = newBSTree();
+		// struct data* test = malloc(sizeof(struct data));
+		//
+		// test->number = 5;
+		// test->name = "idk";
+		//
+		// addBSTree(tree, test);
+		//
+		// struct data* test2 = malloc(sizeof(struct data));
+		//
+		// test2->number = 8;
+		// test2->name = "woo";
+		//
+		// addBSTree(tree, test2);
+		//
+		//
+		// struct data* test3 = malloc(sizeof(struct data));
+		//
+		// test3->number = 4;
+		// test3->name = "woo";
+		//
+		// addBSTree(tree, test3);
+		//
+		// struct data* test4 = malloc(sizeof(struct data));
+		//
+		// test4->number = 20;
+		// test4->name = "woo";
+		//
+		// addBSTree(tree, test4);
+		//
+		// struct data* test5 = malloc(sizeof(struct data));
+		//
+		// test5->number = 15;
+		// test5->name = "woo";
+		//
+		// addBSTree(tree, test5);
+		//
+		// printTree(tree);
+		//
+		// printf("Finding 4: %d\n", containsBSTree(tree, test3));
+		// printf("Finding 5: %d\n", containsBSTree(tree, test));
+		// printf("Finding 8: %d\n", containsBSTree(tree, test2));
+		// printf("Finding 20: %d\n", containsBSTree(tree, test4));
+		// printf("Finding 15: %d\n", containsBSTree(tree, test5));
+		//
+		// struct data* test6 = malloc(sizeof(struct data));
+		//
+		// test6->number = 30;
+		// test6->name = "woo";
+		// printf("Finding 30: %d\n", containsBSTree(tree, test6));
+		//
+		// printf("Leftmost: ");
+		// print_type(_leftMost(tree->root));
+		// printf("\n");
+		//
+		// printf("Removing 8... \n");
+		// removeBSTree(tree, test2);
+		// printTree(tree);
 
 	return 0;
 
