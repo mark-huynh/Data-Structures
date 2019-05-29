@@ -1,8 +1,8 @@
 /*
  * CS 261 Data Structures
  * Assignment 5
- * Name: 
- * Date: 
+ * Name: Mark Huynh
+ * Date: May 25th, 2019
  */
 
 #include "hashMap.h"
@@ -113,10 +113,10 @@ void hashMapDelete(HashMap* map)
 /**
  * Returns a pointer to the value of the link with the given key  and skip traversing as well. Returns NULL
  * if no link with that key is in the table.
- * 
+ *
  * Use HASH_FUNCTION(key) and the map's capacity to find the index of the
  * correct linked list bucket. Also make sure to search the entire list.
- * 
+ *
  * @param map
  * @param key
  * @return Link value or NULL if no matching link.
@@ -124,17 +124,24 @@ void hashMapDelete(HashMap* map)
 int* hashMapGet(HashMap* map, const char* key)
 {
     // FIXME: implement
+    int index = HASH_FUNCTION(key) % map->size;
+    if(map->table[index]->key == key)
+    {
+      return &(map->table[index]->value);
+    }
     return NULL;
+
+
 }
 
 /**
- * Resizes the hash table to have a number of buckets equal to the given 
- * capacity (double of the old capacity). After allocating the new table, 
+ * Resizes the hash table to have a number of buckets equal to the given
+ * capacity (double of the old capacity). After allocating the new table,
  * all of the links need to rehashed into it because the capacity has changed.
- * 
+ *
  * Remember to free the old table and any old links if you use hashMapPut to
  * rehash them.
- * 
+ *
  * @param map
  * @param capacity The new number of buckets.
  */
@@ -148,10 +155,10 @@ void resizeTable(HashMap* map, int capacity)
  * key already exists, this will just update the value and skip traversing. Otherwise, it will
  * create a new link with the given key and value and add it to the table
  * bucket's linked list. You can use hashLinkNew to create the link.
- * 
+ *
  * Use HASH_FUNCTION(key) and the map's capacity to find the index of the
  * correct linked list bucket.
- * 
+ *
  * @param map
  * @param key
  * @param value
@@ -175,10 +182,10 @@ void hashMapRemove(HashMap* map, const char* key)
 
 /**
  * Returns 1 if a link with the given key is in the table and 0 otherwise.
- * 
+ *
  * Use HASH_FUNCTION(key) and the map's capacity to find the index of the
  * correct linked list bucket. Also make sure to search the entire list.
- * 
+ *
  * @param map
  * @param key
  * @return 1 if the key is found, 0 otherwise.
@@ -244,5 +251,5 @@ void hashMapPrint(HashMap* map)
 {
   // FIXME: implement
 
-   
+
 }
