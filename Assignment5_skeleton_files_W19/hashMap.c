@@ -125,6 +125,7 @@ int* hashMapGet(HashMap* map, const char* key)
 {
     // FIXME: implement
     int index = HASH_FUNCTION(key) % map->capacity;
+    printf("index: %d", index);
     if(map->table[index]->key == key)
     {
       return &(map->table[index]->value);
