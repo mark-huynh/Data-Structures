@@ -62,7 +62,8 @@ int main(int argc, const char** argv)
 
 //Test Program
 
-printf("test");
+  HashMap* test = hashMapNew(5);
+  
 
 
 

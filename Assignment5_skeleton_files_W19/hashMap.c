@@ -124,7 +124,7 @@ void hashMapDelete(HashMap* map)
 int* hashMapGet(HashMap* map, const char* key)
 {
     // FIXME: implement
-    int index = HASH_FUNCTION(key) % map->size;
+    int index = HASH_FUNCTION(key) % map->capacity;
     if(map->table[index]->key == key)
     {
       return &(map->table[index]->value);
@@ -166,6 +166,14 @@ void resizeTable(HashMap* map, int capacity)
 void hashMapPut(HashMap* map, const char* key, int value)
 {
     // FIXME: implement
+    if(hashMapContainsKey(map, key))
+    {
+      int* internalVal = hasMapGet(map, key);
+      *internalVal = value;
+      return;
+    }
+    int index = HASH_FUNCTION(key) % map->capacity;
+    map->table[index] = hashlinkNew(key, value, map->table[index]);
 }
 
 /**
