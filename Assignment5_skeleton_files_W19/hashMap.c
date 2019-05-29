@@ -168,12 +168,12 @@ void hashMapPut(HashMap* map, const char* key, int value)
     // FIXME: implement
     if(hashMapContainsKey(map, key))
     {
-      int* internalVal = hasMapGet(map, key);
+      int* internalVal = hashMapGet(map, key);
       *internalVal = value;
       return;
     }
     int index = HASH_FUNCTION(key) % map->capacity;
-    map->table[index] = hashlinkNew(key, value, map->table[index]);
+    map->table[index] = hashLinkNew(key, value, map->table[index]);
 }
 
 /**
