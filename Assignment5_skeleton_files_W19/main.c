@@ -63,7 +63,7 @@ int main(int argc, const char** argv)
 //Test Program
 
   HashMap* test = hashMapNew(5);
-  printf("Printing get key test: %p", hashMapGet(test, "test"));
+  // printf("Printing get key test: %p", hashMapGet(test, "test"));
 
 
 
