@@ -63,10 +63,7 @@ int main(int argc, const char** argv)
 //Test Program
 
   HashMap* test = hashMapNew(5);
-  int index = HASH_FUNCTION("test") % 5;
-  printf("index: %d", index);
-
-  // printf("Printing get key test: %p", hashMapGet(test, "test"));
+  printf("Printing get key test: %p", hashMapGet(test, "test"));
 
 
 
