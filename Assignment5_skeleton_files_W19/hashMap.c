@@ -90,7 +90,7 @@ void hashMapCleanUp(HashMap* map)
     for(int i = 0; i < map->capacity; i++)
     {
       cur = map->table[i];
-      if(cur != NULL)
+      while(cur != NULL)
       {
         next = cur->next;
         hashLinkDelete(cur);
