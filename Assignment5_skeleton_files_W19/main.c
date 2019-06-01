@@ -78,9 +78,9 @@ int main(int argc, const char** argv)
 
   printf("Map size: %d\n", map->size);
 
-  hashMapPrint(map);
-
-  hashMapRemove(map, "test");
+  // hashMapPrint(map);
+  //
+  // hashMapRemove(map, "test");
 
   hashMapPrint(map);
 
