@@ -170,7 +170,22 @@ int* hashMapGet(HashMap* map, const char* key)
 void resizeTable(HashMap* map, int capacity)
 {
     // FIXME: implement
+    HashMap* new = hashMapNew(capacity);
+    for(int i = 0; i < map->capacity; i++)
+    {
+      HashLink* cur = map->table[i];
+      while(cur != NULL)
+      {
+        hashMapPut(new, cur->key, cur->value);
+        cur = cur->next;
+      }
+    }
+    hashMapCleanUp(map);
+    map->size = new->size;
+    map->table = new->table;
+    map->capacity = capacity;
 
+    hashMapDelete(new);
 }
 
 /**
