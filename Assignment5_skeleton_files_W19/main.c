@@ -77,6 +77,7 @@ int main(int argc, const char** argv)
   printf("Value: %d\n", *val);
   printf("Does it contain test? : %d\n", hashMapContainsKey(test, "test"));
 
+  printf("Map Size: %d", test->size);
   // printf("%d", test->table[3]->value);
 
   // printf("%d", strcmp("test", "tes"));

@@ -199,7 +199,7 @@ void hashMapPut(HashMap* map, const char* key, int value)
       }
       cur->next = temp;
     }
-
+    map->size++;
 
 
 
