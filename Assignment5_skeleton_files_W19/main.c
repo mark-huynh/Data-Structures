@@ -78,6 +78,7 @@ int main(int argc, const char** argv)
 
   printf("Map size: %d\n", map->size);
 
+  hashMapPrint(map);
 
   // printf("%d", test->table[3]->value);
 
