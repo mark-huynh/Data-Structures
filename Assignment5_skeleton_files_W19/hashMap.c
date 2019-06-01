@@ -84,6 +84,20 @@ void hashMapInit(HashMap* map, int capacity)
 void hashMapCleanUp(HashMap* map)
 {
     // FIXME: implement
+    HashLink* cur;
+    HashLink* next;
+
+    for(int i = 0; i < map->capacity; i++)
+    {
+      cur = map->table[i];
+      if(cur != NULL)
+      {
+        next = cur->next;
+        hashLinkDelete(cur);
+        cur = next;
+      }
+    }
+    free(map->table);
 }
 
 /**
@@ -156,6 +170,7 @@ int* hashMapGet(HashMap* map, const char* key)
 void resizeTable(HashMap* map, int capacity)
 {
     // FIXME: implement
+
 }
 
 /**
@@ -183,8 +198,7 @@ void hashMapPut(HashMap* map, const char* key, int value)
     HashLink* temp = hashLinkNew(key, value, NULL);
 
     int index = HASH_FUNCTION(key) % map->capacity;
-    printf("Index: %d\n", index);
-    // map->table[index] = hashLinkNew(key, value, map->table[index]);
+    // printf("Index: %d\n", index);
 
     if(map->table[index] == NULL)
     {

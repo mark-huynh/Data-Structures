@@ -80,6 +80,7 @@ int main(int argc, const char** argv)
 
   hashMapPrint(map);
 
+  hashMapDelete(map);
   // printf("%d", test->table[3]->value);
 
   // printf("%d", strcmp("test", "tes"));
