@@ -184,11 +184,20 @@ void hashMapPut(HashMap* map, const char* key, int value)
 
     int index = HASH_FUNCTION(key) % map->capacity;
     printf("Index: %d\n", index);
-    map->table[index] = hashLinkNew(key, value, map->table[index]);
+    // map->table[index] = hashLinkNew(key, value, map->table[index]);
 
     if(map->table[index] == NULL)
     {
       map->table[index] = temp;
+    }
+    else
+    {
+      HashLink* cur = map->table[index];
+      while(cur->next != NULL)
+      {
+        cur = cur->next;
+      }
+      cur->next = temp;
     }
 
 
