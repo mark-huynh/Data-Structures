@@ -228,7 +228,7 @@ int hashMapContainsKey(HashMap* map, const char* key)
 
     while(cur != NULL)
     {
-      if(strcmp(key, cur->key))
+      if(strcmp(key, cur->key) == 0)
       {
         return 1;
       }
