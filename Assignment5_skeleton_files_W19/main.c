@@ -80,7 +80,7 @@ int main(int argc, const char** argv)
 
   hashMapPrint(map);
 
-  resizeTable(map, 10);
+  resizeTable(map, 25);
 
   hashMapPrint(map);
 
