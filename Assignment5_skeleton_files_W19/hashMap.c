@@ -245,6 +245,33 @@ void hashMapPut(HashMap* map, const char* key, int value)
 void hashMapRemove(HashMap* map, const char* key)
 {
     // FIXME: implement
+    int index = HASH_FUNCTION(key) % map->capacity;
+
+    HashLink* cur = map->table[index];
+    HashLink* prev;
+
+    if(strcmp(key, cur->key) == 0)
+    {
+      map->table[index] = cur->next;
+      hashLinkDelete(cur);
+      map->size--;
+      return;
+    }
+
+    while(cur != NULL)
+    {
+      prev = cur;
+      cur = cur->next;
+      
+      if(strcmp(key, cur->key) == 0)
+      {
+        prev->next = cur->next;
+        hashLinkDelete(cur);
+        map->size--;
+        return;
+      }
+    }
+
 }
 
 /**
