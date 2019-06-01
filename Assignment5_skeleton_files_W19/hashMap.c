@@ -315,6 +315,7 @@ void hashMapPrint(HashMap* map)
               printf("(%s: %d) --> ", lnk->key, lnk->value);
               lnk = lnk->next;
           }
+          printf("NULL\n");
       }
   }
   printf("\n");
