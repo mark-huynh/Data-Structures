@@ -68,8 +68,8 @@ int main(int argc, const char** argv)
   printf("Adding test with value 20");
   hashMapPut(test, "test", 20);
   printf("Printing get key test: %p\n", hashMapGet(test, "test"));
-  int* val = hashMapGet(test, "test");
-  printf("Value: %d", *val);
+  // int* val = hashMapGet(test, "test");
+  // printf("Value: %d", *val);
   printf("Does it contain test? : %d\n", hashMapContainsKey(test, "test"));
 
 
