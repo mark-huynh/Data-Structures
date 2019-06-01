@@ -185,10 +185,10 @@ void hashMapPut(HashMap* map, const char* key, int value)
     int index = HASH_FUNCTION(key) % map->capacity;
     map->table[index] = hashLinkNew(key, value, map->table[index]);
 
-    if(map->table[index] == NULL)
-    {
+    // if(map->table[index] == NULL)
+    // {
       map->table[index] = temp;
-    }
+    // }
 
 
 
