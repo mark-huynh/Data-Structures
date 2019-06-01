@@ -300,16 +300,20 @@ float hashMapTableLoad(HashMap* map)
 void hashMapPrint(HashMap* map)
 {
   // FIXME: implement
-  for (int i = 0; i < map->capacity; i++)
+  for(int i = 0; i < map->capacity; i++)
   {
-      HashLink* link = map->table[i];
-      if (link != NULL)
+      HashLink* lnk = map->table[i];
+      if(lnk == NULL)
       {
-          printf("\nBucket %i ->", i);
-          while (link != NULL)
+        printf("%d: (Empty)\n", i);
+      }
+      if (lnk != NULL)
+      {
+          printf("%d: ", i);
+          while (lnk != NULL)
           {
-              printf("(%s: %d) ->", link->key, link->value);
-              link = link->next;
+              printf("(%s: %d) --> ", lnk->key, lnk->value);
+              lnk = lnk->next;
           }
       }
   }
