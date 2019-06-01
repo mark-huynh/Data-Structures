@@ -62,28 +62,23 @@ int main(int argc, const char** argv)
 
 //Test Program
 
-  HashMap* test = hashMapNew(5);
-  printf("Printing get key test: %p\n", hashMapGet(test, "test"));
-  printf("Does it contain test? : %d\n", hashMapContainsKey(test, "test"));
-  printf("Adding test with value 20");
-  hashMapPut(test, "test", 20);
-  printf("Printing get key test: %p\n", hashMapGet(test, "test"));
-  int* val = hashMapGet(test, "test");
-  printf("Value: %d\n", *val);
-  printf("Does it contain test? : %d\n", hashMapContainsKey(test, "test"));
-  hashMapPut(test, "test", 30);
-  printf("Printing get key test: %p\n", hashMapGet(test, "test"));
-  val = hashMapGet(test, "test");
-  printf("Value: %d\n", *val);
-  printf("Does it contain test? : %d\n", hashMapContainsKey(test, "test"));
-  hashMapPut(test, "testa", 20);
-  printf("Printing get key testa: %p\n", hashMapGet(test, "testa"));
-  val = hashMapGet(test, "testa");
-  printf("Value: %d\n", *val);
-  printf("Does it contain testa? : %d\n", hashMapContainsKey(test, "test"));
+  HashMap* map = hashMapNew(5);
+
+  hashMapPut(map, "test", 20);
+  hashMapPut(map, "l", 40);
+
+  int * val;
+
+  printf("Contains key: test: %d\n", hashMapContainsKey(map, "test"));
+  val = hashMapGet(map, "test");
+  printf("Value at test: %d\n", *val);
+  printf("Contains key: l: %d\n", hashMapContainsKey(map, "l"));
+  val = hashMapGet(map, "l");
+  printf("Value at l: %d\n", *val);
+
+  printf("Map size: %d\n", map->size);
 
 
-  printf("Map Size: %d", test->size);
   // printf("%d", test->table[3]->value);
 
   // printf("%d", strcmp("test", "tes"));
