@@ -174,14 +174,26 @@ void resizeTable(HashMap* map, int capacity)
 void hashMapPut(HashMap* map, const char* key, int value)
 {
     // FIXME: implement
-    if(hashMapContainsKey(map, key))
-    {
-      int* internalVal = hashMapGet(map, key);
-      *internalVal = value;
-      return;
-    }
+    // if(hashMapContainsKey(map, key))
+    // {
+    //   int* internalVal = hashMapGet(map, key);
+    //   *internalVal = value;
+    //   return;
+    // }
+    HashLink* temp = hashLinkNew(key, value, NULL);
+
     int index = HASH_FUNCTION(key) % map->capacity;
     map->table[index] = hashLinkNew(key, value, map->table[index]);
+
+    if(map->table[index] == NULL)
+    {
+      map->table[index] = temp;
+    }
+
+
+
+
+
 }
 
 /**
@@ -209,6 +221,18 @@ void hashMapRemove(HashMap* map, const char* key)
 int hashMapContainsKey(HashMap* map, const char* key)
 {
     // FIXME: implement
+    int index = HASH_FUNCTION(key) % map->capacity;
+
+    HashLink* cur = map->table[index];
+
+    while(cur != NULL)
+    {
+      if(strcmp(key, cur->key))
+      {
+        return 1;
+      }
+      cur = cur->next;
+    }
     return 0;
 }
 
