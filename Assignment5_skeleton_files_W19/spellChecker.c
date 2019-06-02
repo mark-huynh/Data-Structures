@@ -104,8 +104,21 @@ int main(int argc, const char** argv)
         scanf("%s", inputBuffer);
 
         // Implement the spell checker code here..
-        hashMapPrint(map);
-
+        for(int i = 0; i < map->capacity; i++)
+        {
+            HashLink* lnk = map->table[i];
+            if (lnk != NULL)
+            {
+                printf("\nBucket %d -> ", i);
+                while (lnk != NULL)
+                {
+                    printf("(%s: %d) -> ", lnk->key, lnk->value);
+                    lnk = lnk->next;
+                }
+                printf("NULL");
+            }
+        }
+        printf("\n");
 
 
 
