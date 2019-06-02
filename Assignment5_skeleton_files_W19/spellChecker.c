@@ -187,6 +187,11 @@ int main(int argc, const char** argv)
 
         // Implement the spell checker code here..
 
+        for(int i = 0; inputBuffer[i] != '\0'; i++)
+        {
+          inputBuffer[i] = tolower(inputBuffer[i]);
+        }
+
         if(hashMapContainsKey(map, inputBuffer))
         {
           printf("The inputted word, %s, was spelled correctly.\n", inputBuffer);
