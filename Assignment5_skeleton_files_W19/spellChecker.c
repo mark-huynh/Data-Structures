@@ -196,11 +196,12 @@ int main(int argc, const char** argv)
           char** poss;
           changeWeight(map, inputBuffer);
           poss = recomend(map);
+          printf("The inputted word, %s, was spelled incorrectly. Did you mean", inputBuffer);
           for(int i = 0; i < 5; i++)
           {
-            printf("%s, ", poss[i]);
-            printf("\n");
+            printf(" %s", poss[i]);
           }
+          printf("?\n");
         }
 
         // file = fopen("dictionary.txt", "r");
