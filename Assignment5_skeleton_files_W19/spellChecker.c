@@ -204,9 +204,9 @@ int main(int argc, const char** argv)
           printf("?\n");
         }
 
-        // file = fopen("dictionary.txt", "r");
-        // loadDictionary(file, map);
-        // fclose(file);
+        file = fopen("dictionary.txt", "r");
+        loadDictionary(file, map);
+        fclose(file);
 
 
         if (strcmp(inputBuffer, "quit") == 0)
