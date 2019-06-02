@@ -187,22 +187,23 @@ int main(int argc, const char** argv)
 
         // Implement the spell checker code here..
 
-        char** poss;
         if(hashMapContainsKey(map, inputBuffer))
         {
           printf("The inputted word %s was spelled correctly.", inputBuffer);
         }
         else
         {
+          char** poss;
           changeWeight(map, inputBuffer);
           poss = recomend(map);
+          for(int i = 0; i < 5; i++)
+          {
+            printf("%s, ", poss[i]);
+            printf("\n");
+          }
         }
 
-        for(int i = 0; i < 5; i++)
-        {
-          printf("%s, ", poss[i]);
-          printf("\n");
-        }
+
 
         // for(int i = 0; i < map->capacity; i++)
         // {
