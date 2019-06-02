@@ -105,7 +105,18 @@ void loadDictionary(FILE* file, HashMap* map)
   */
  void changeWeight(HashMap* map, char* comparedString)
  {
-
+   for(int i = 0; i < map->capacity; i++)
+   {
+       HashLink* lnk = map->table[i];
+       if (lnk != NULL)
+       {
+           while (lnk != NULL)
+           {
+               lnk->value = calcLeven(lnk->key, comparedString);
+               lnk = lnk->next;
+           }
+       }
+   }
  }
 
  /**
@@ -130,48 +141,58 @@ int main(int argc, const char** argv)
 {
     // FIXME: implement
 
-    printf("%d\n", calcLeven("rawr", "ratr"));
-    printf("%d\n", calcLeven("rawr", "satr"));
-    printf("%d\n", calcLeven("rawr", "rawrasdf"));
-    printf("%d\n", calcLeven("rawr", "ra"));
 
+    HashMap* map = hashMapNew(1000);
 
-    // HashMap* map = hashMapNew(1000);
-    //
-    // FILE* file = fopen("dictionary.txt", "r");
-    // clock_t timer = clock();
-    // loadDictionary(file, map);
-    // timer = clock() - timer;
-    // printf("Dictionary loaded in %f seconds\n", (float)timer / (float)CLOCKS_PER_SEC);
-    // fclose(file);
-    //
-    // char inputBuffer[256];
-    // int quit = 0;
-    // while (!quit)
-    // {
-    //     printf("Enter a word or \"quit\" to quit: ");
-    //     scanf("%s", inputBuffer);
-    //
-    //     // Implement the spell checker code here..
-    //
-    //     if(hashMapContainsKey(map, inputBuffer))
-    //     {
-    //       printf("The inputted word %s was spelled correctly.", inputBuffer);
-    //     }
-    //     else
-    //     {
-    //       char** poss;
-    //       changeWeight(map, inputBuffer);
-    //       poss = recomend(map);
-    //     }
-    //
-    //
-    //     if (strcmp(inputBuffer, "quit") == 0)
-    //     {
-    //         quit = 1;
-    //     }
-    // }
-    //
-    // hashMapDelete(map);
-    // return 0;
+    FILE* file = fopen("dictionary.txt", "r");
+    clock_t timer = clock();
+    loadDictionary(file, map);
+    timer = clock() - timer;
+    printf("Dictionary loaded in %f seconds\n", (float)timer / (float)CLOCKS_PER_SEC);
+    fclose(file);
+
+    char inputBuffer[256];
+    int quit = 0;
+    while (!quit)
+    {
+        printf("Enter a word or \"quit\" to quit: ");
+        scanf("%s", inputBuffer);
+
+        // Implement the spell checker code here..
+
+        if(hashMapContainsKey(map, inputBuffer))
+        {
+          printf("The inputted word %s was spelled correctly.", inputBuffer);
+        }
+        else
+        {
+          char** poss;
+          changeWeight(map, inputBuffer);
+          // poss = recomend(map);
+        }
+        
+        for(int i = 0; i < map->capacity; i++)
+        {
+            HashLink* lnk = map->table[i];
+            if (lnk != NULL)
+            {
+                printf("\nBucket %d -> ", i);
+                while (lnk != NULL)
+                {
+                    printf("(%s: %d) -> ", lnk->key, lnk->value);
+                    lnk = lnk->next;
+                }
+                printf("NULL");
+            }
+        }
+        printf("\n");
+
+        if (strcmp(inputBuffer, "quit") == 0)
+        {
+            quit = 1;
+        }
+    }
+
+    hashMapDelete(map);
+    return 0;
 }
