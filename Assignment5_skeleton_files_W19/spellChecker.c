@@ -197,6 +197,7 @@ int main(int argc, const char** argv)
           changeWeight(map, inputBuffer);
           poss = recomend(map);
           printf("The inputted word, %s, was spelled incorrectly. Did you mean:", inputBuffer);
+          printf(inputBuffer);
           for(int i = 0; i < 5; i++)
           {
             printf(" %s", poss[i]);
@@ -204,9 +205,9 @@ int main(int argc, const char** argv)
           printf("?\n");
         }
 
-        file = fopen("dictionary.txt", "r");
-        loadDictionary(file, map);
-        fclose(file);
+        // file = fopen("dictionary.txt", "r");
+        // loadDictionary(file, map);
+        // fclose(file);
 
 
         if (strcmp(inputBuffer, "quit") == 0)
