@@ -380,17 +380,17 @@ void hashMapPrint(HashMap* map)
       HashLink* lnk = map->table[i];
       if(lnk == NULL)
       {
-        printf("%d: (Empty)\n", i);
+        printf("\n%d: (Empty)", i);
       }
       if (lnk != NULL)
       {
-          printf("%d: ", i);
+          printf("\n%d: ", i);
           while (lnk != NULL)
           {
               printf("(%s: %d) --> ", lnk->key, lnk->value);
               lnk = lnk->next;
           }
-          printf("NULL\n");
+          printf("NULL");
       }
   }
   printf("\n");
