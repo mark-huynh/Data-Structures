@@ -196,7 +196,7 @@ int main(int argc, const char** argv)
           char* poss[5];
           changeWeight(map, inputBuffer);
           poss = recomend(map);
-          printf("The inputted word was spelled incorrectly. Did you mean:");
+          printf("The inputted word %s was spelled incorrectly. Did you mean:", inputBuffer);
           for(int i = 0; i < 5; i++)
           {
             printf(" %s", poss[i]);
