@@ -189,7 +189,7 @@ int main(int argc, const char** argv)
 
         if(hashMapContainsKey(map, inputBuffer))
         {
-          printf("The inputted word %s was spelled correctly.", inputBuffer);
+          printf("The inputted word, %s, was spelled correctly.\n", inputBuffer);
         }
         else
         {
@@ -203,27 +203,9 @@ int main(int argc, const char** argv)
           }
         }
 
-
-
-        // for(int i = 0; i < map->capacity; i++)
-        // {
-        //     HashLink* lnk = map->table[i];
-        //     if (lnk != NULL)
-        //     {
-        //         printf("\nBucket %d -> ", i);
-        //         while (lnk != NULL)
-        //         {
-        //             printf("(%s: %d) -> ", lnk->key, lnk->value);
-        //             lnk = lnk->next;
-        //         }
-        //         printf("NULL");
-        //     }
-        // }
-        // printf("\n");
-
-        file = fopen("dictionary.txt", "r");
-        loadDictionary(file, map);
-        fclose(file);
+        // file = fopen("dictionary.txt", "r");
+        // loadDictionary(file, map);
+        // fclose(file);
 
 
         if (strcmp(inputBuffer, "quit") == 0)
