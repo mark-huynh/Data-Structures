@@ -88,6 +88,7 @@ int main(int argc, const char** argv)
       {
         word[i] = tolower(word[i]);
       }
+
       curNum = hashMapGet(map, word);
       if(curNum == NULL)
       {
