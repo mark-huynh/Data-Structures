@@ -215,6 +215,11 @@ void hashMapPut(HashMap* map, const char* key, int value)
     int index = HASH_FUNCTION(key) % map->capacity;
     // printf("Index: %d\n", index);
 
+    if(index < 0)
+    {
+      index += map->capacity;
+    }
+
     if(map->table[index] == NULL)
     {
       map->table[index] = temp;
@@ -230,9 +235,12 @@ void hashMapPut(HashMap* map, const char* key, int value)
     }
     map->size++;
 
+    float loadFactor = hashMapTableLoad(map);
 
-
-
+    if(loadFactor >= MAX_TABLE_LOAD)
+    {
+      resizeTable(map, (2 * map->capacity));
+    }
 }
 
 /**
@@ -262,7 +270,7 @@ void hashMapRemove(HashMap* map, const char* key)
     {
       prev = cur;
       cur = cur->next;
-      
+
       if(strcmp(key, cur->key) == 0)
       {
         prev->next = cur->next;
@@ -310,7 +318,7 @@ int hashMapContainsKey(HashMap* map, const char* key)
 int hashMapSize(HashMap* map)
 {
     // FIXME: implement
-    return 0;
+    return map->size;
 }
 
 /**
@@ -321,7 +329,7 @@ int hashMapSize(HashMap* map)
 int hashMapCapacity(HashMap* map)
 {
     // FIXME: implement
-    return 0;
+    return map->capacity;
 }
 
 /**
@@ -332,7 +340,16 @@ int hashMapCapacity(HashMap* map)
 int hashMapEmptyBuckets(HashMap* map)
 {
     // FIXME: implement
-    return 0;
+    int emptyBuckets = 0;
+
+    for(int i = 0; i < map->size; i++)
+    {
+      if(map->table[i] == NULL)
+      {
+        emptyBuckets++;
+      }
+    }
+    return emptyBuckets;
 }
 
 /**
@@ -346,7 +363,9 @@ int hashMapEmptyBuckets(HashMap* map)
 float hashMapTableLoad(HashMap* map)
 {
     // FIXME: implement
-    return 0;
+    float size = (float) hashMapSize(map);
+    float cap = (float) hashMapCapacity(map);
+    return (size / cap);
 }
 
 /**
