@@ -75,7 +75,7 @@ void loadDictionary(FILE* file, HashMap* map)
    int sum = 0;
    char* toUse;
    char* other;
-   if(string1 <= string2)
+   if(strlen(string1) <= strlen(string2))
    {
      toUse = string1;
      other = string2;
