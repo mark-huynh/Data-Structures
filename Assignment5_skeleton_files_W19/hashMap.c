@@ -342,7 +342,7 @@ int hashMapEmptyBuckets(HashMap* map)
     // FIXME: implement
     int emptyBuckets = 0;
 
-    for(int i = 0; i < map->size; i++)
+    for(int i = 0; i < map->capacity; i++)
     {
       if(map->table[i] == NULL)
       {
