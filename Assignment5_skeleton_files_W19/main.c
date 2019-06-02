@@ -59,58 +59,6 @@ char* nextWord(FILE* file)
  */
 int main(int argc, const char** argv)
 {
-
-//Test Program
-
-  HashMap* map = hashMapNew(5);
-
-  hashMapPut(map, "test", 20);
-  hashMapPut(map, "l", 40);
-
-  int * val;
-
-  printf("Contains key: test: %d\n", hashMapContainsKey(map, "test"));
-  val = hashMapGet(map, "test");
-  printf("Value at test: %d\n", *val);
-  printf("Contains key: l: %d\n", hashMapContainsKey(map, "l"));
-  val = hashMapGet(map, "l");
-  printf("Value at l: %d\n", *val);
-
-  printf("Map size: %d\n", map->size);
-
-  // hashMapPrint(map);
-  //
-  // hashMapRemove(map, "test");
-
-  hashMapPrint(map);
-
-  hashMapRemove(map, "l");
-
-  hashMapPrint(map);
-
-  //
-  // resizeTable(map, 25);
-  //
-  // hashMapPrint(map);
-
-
-  hashMapDelete(map);
-
-
-
-
-
-
-
-//End Test Program
-
-
-
-
-
-
-  /* Actual Program
-
     // FIXME: implement
     const char* fileName = "input1.txt";
     if (argc > 1)
@@ -124,7 +72,37 @@ int main(int argc, const char** argv)
     HashMap* map = hashMapNew(10);
 
     // --- Concordance code begins here ---
-    // Be sure to free the word after you are done with it here.
+
+    FILE *f = fopen(fileName, "r");
+
+    char* word = nextWord(f);
+
+    while(word != NULL)
+    {
+      hashMapPut(map, word, (*hashMapGet(map, word) + 1));
+      free(word);
+      word = nextWord(f);
+    }
+
+    for(int i = 0; i < map->capacity; i++)
+    {
+        HashLink* lnk = map->table[i];
+        if (lnk != NULL)
+        {
+            printf("\nBucket %d -> ", i);
+            while (lnk != NULL)
+            {
+                printf("(%s: %d) -> ", lnk->key, lnk->value);
+                lnk = lnk->next;
+            }
+            printf("NULL");
+        }
+    }
+    printf("\n");
+
+    fclose(f);
+
+
     // --- Concordance code ends here ---
 
 
@@ -138,5 +116,5 @@ int main(int argc, const char** argv)
 
     hashMapDelete(map);
     return 0;
-  */
+
 }
