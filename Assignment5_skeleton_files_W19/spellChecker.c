@@ -170,7 +170,7 @@ int main(int argc, const char** argv)
           changeWeight(map, inputBuffer);
           // poss = recomend(map);
         }
-        
+
         for(int i = 0; i < map->capacity; i++)
         {
             HashLink* lnk = map->table[i];
@@ -186,6 +186,11 @@ int main(int argc, const char** argv)
             }
         }
         printf("\n");
+
+        file = fopen("dictionary.txt", "r");
+        loadDictionary(file, map);
+        fclose(file);
+
 
         if (strcmp(inputBuffer, "quit") == 0)
         {
