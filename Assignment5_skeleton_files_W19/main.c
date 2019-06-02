@@ -77,21 +77,23 @@ int main(int argc, const char** argv)
 
     char* word = nextWord(f);
 
-    int* curNum = hashMapGet(map, word);
+    int* curNum;
 
     int toAdd;
 
-    if(curNum == NULL)
-    {
-      toAdd = 0;
-    }
-    else
-    {
-      toAdd = *curNum;
-    }
 
     while(word != NULL)
     {
+      curNum = hashMapGet(map, word);
+      if(curNum == NULL)
+      {
+        toAdd = 0;
+      }
+      else
+      {
+        toAdd = *curNum;
+      }
+
       hashMapPut(map, word, (toAdd + 1));
       free(word);
       word = nextWord(f);
