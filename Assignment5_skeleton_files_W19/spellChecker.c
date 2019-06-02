@@ -125,7 +125,34 @@ void loadDictionary(FILE* file, HashMap* map)
   */
  char** recomend(HashMap* map)
  {
-
+   char** arr;
+   int size = 0;
+   int compareLen = 1;
+   while(size < 5)
+   {
+     for(int i = 0; i < map->capacity; i++)
+     {
+         HashLink* lnk = map->table[i];
+         if (lnk != NULL)
+         {
+             while (lnk != NULL)
+             {
+                 if(lnk->value == compareLen)
+                 {
+                   if(size >= 5)
+                   {
+                     break;
+                   }
+                   arr[size] = lnk->key;
+                   size++;
+                 }
+                 lnk = lnk->next;
+             }
+         }
+     }
+     compareLen++;
+   }
+   return arr;
  }
 
 
@@ -160,32 +187,38 @@ int main(int argc, const char** argv)
 
         // Implement the spell checker code here..
 
+        char** poss;
         if(hashMapContainsKey(map, inputBuffer))
         {
           printf("The inputted word %s was spelled correctly.", inputBuffer);
         }
         else
         {
-          char** poss;
           changeWeight(map, inputBuffer);
-          // poss = recomend(map);
+          poss = recomend(map);
         }
 
-        for(int i = 0; i < map->capacity; i++)
+        for(int i = 0; i < 5; i++)
         {
-            HashLink* lnk = map->table[i];
-            if (lnk != NULL)
-            {
-                printf("\nBucket %d -> ", i);
-                while (lnk != NULL)
-                {
-                    printf("(%s: %d) -> ", lnk->key, lnk->value);
-                    lnk = lnk->next;
-                }
-                printf("NULL");
-            }
+          printf("%s, ", poss[i]);
+          printf("\n");
         }
-        printf("\n");
+
+        // for(int i = 0; i < map->capacity; i++)
+        // {
+        //     HashLink* lnk = map->table[i];
+        //     if (lnk != NULL)
+        //     {
+        //         printf("\nBucket %d -> ", i);
+        //         while (lnk != NULL)
+        //         {
+        //             printf("(%s: %d) -> ", lnk->key, lnk->value);
+        //             lnk = lnk->next;
+        //         }
+        //         printf("NULL");
+        //     }
+        // }
+        // printf("\n");
 
         file = fopen("dictionary.txt", "r");
         loadDictionary(file, map);
