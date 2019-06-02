@@ -80,8 +80,11 @@ void loadDictionary(FILE* file, HashMap* map)
      toUse = string1;
      other = string2;
    }
-   toUse = string2;
-   other = string1;
+   else
+   {
+     toUse = string2;
+     other = string1;
+   }
    for(int i = 0; i < strlen(toUse); i++)
    {
      if(toUse[i] != other[i])
