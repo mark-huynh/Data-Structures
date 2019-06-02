@@ -125,7 +125,7 @@ void loadDictionary(FILE* file, HashMap* map)
   */
  char** recomend(HashMap* map)
  {
-   char** arr;
+   char* arr[5];
    int size = 0;
    int compareLen = 1;
    while(size < 5)
@@ -193,7 +193,7 @@ int main(int argc, const char** argv)
         }
         else
         {
-          char** poss;
+          char* poss[5];
           changeWeight(map, inputBuffer);
           poss = recomend(map);
           printf("The inputted word was spelled incorrectly. Did you mean:");
